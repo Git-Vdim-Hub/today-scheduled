@@ -17,8 +17,8 @@
 $(function () {
   var today = dayjs();
   var currentHour = today.format('H');
-  console.log(currentHour<9 && currentHour>0);
-  console.log(parseInt(currentHour)===15);
+  //console.log(currentHour<9 && currentHour>0);
+  //console.log(parseInt(currentHour)===15);
   var hrEl9 = $('#hour-9');
   var hrEl10 = $('#hour-10');
   var hrEl11 = $('#hour-11');  
@@ -28,6 +28,8 @@ $(function () {
   var hrEl15 = $('#hour-15');
   var hrEl16 = $('#hour-16');
   var hrEl17 = $('#hour-17');
+
+  console.log(($('#calendarContainer').children().eq(0).attr('id')).split("-")[1]);
   //var correctHourEl = $(`${}`);
     // TODO: Add a listener for click events on the save button. This code should
     // use the id in the containing time-block as a key to save the user input in
@@ -63,6 +65,17 @@ $(function () {
       hrEl15.attr('class', 'row time-block past');
       hrEl16.attr('class', 'row time-block past');
       hrEl17.attr('class', 'row time-block past');
+    }
+    if(parseInt(currentHour)>8 && parseInt(currentHour)<=17){
+      //do stuff
+      //if current hour is 8 set present for 8 and everything else future
+      //if current hour is 9 set present for 9 set 8 for past and everything else future
+      // carousel code comes to mind
+      // ... how do we do this with a loop?
+      // input all of the elements declared above into an array and at each one check for equality
+      // ... how do we put them all into an array?
+      // create an element array, forloop through it and add all html elements to each position of the array
+      // USE THE DOM TRAVERSAL!!
     }
     //hrEl12.attr('class', 'row time-block future');
     //
