@@ -47,8 +47,15 @@ $(function () {
     //localStorage.content = $('#calendarContainer').children().eq(1).children().eq(1).text();
     // get the text
 
-// set the item in localStorage
-localStorage.setItem('tasksObject', JSON.stringify(tasksObject));
+    // set the task in localStorage
+     for(var i = 0; i<calendarElementsLength; i++){
+      localStorage.setItem(($('#calendarContainer').children().eq(i).attr('id')).split("-")[1], JSON.stringify($('#calendarContainer').children().eq(i).children().eq(1).text()));
+     }
+
+    // get the task in localStorage
+    for(var i = 0; i<calendarElementsLength; i++){
+      $('#calendarContainer').children().eq(i).children().eq(1).text(JSON.parse(localStorage.getItem(($('#calendarContainer').children().eq(i).attr('id')).split("-")[1])));
+    }
 
 
 
